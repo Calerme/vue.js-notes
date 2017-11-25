@@ -5,22 +5,21 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Vue.js</title>
+    <title>v-bind</title>
     <script src="https://unpkg.com/vue@2.4.2"></script>
 </head>
 <body>
 <div id="app">
-    <p> {{ message }} </p>
+    <span v-bind:title="message">鼠标悬停显示title信息。</span>
 </div>
 
 <script>
-    alert(Vue);
     let app = new Vue({
         el: '#app',
-        data {
-            message: 'Hello World'
+        data: {
+            message: '页面加载于' + new Date().toLocaleString()
         }
-    });
+    })
 </script>
 </body>
 </html>
