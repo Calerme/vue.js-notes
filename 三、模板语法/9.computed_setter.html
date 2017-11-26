@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>computed setter</title>
+    <script src="https://unpkg.com/vue@2.4.2"></script>
+</head>
+<body>
+<div id="app">
+    <span>First Name: {{ firstName }}</span><br>
+    <span>Last Name: {{ lastName }}</span><br>
+    <span>Full Name: {{ fullName }}</span><br>
+    <p>Set full name: <input @change="setName"></p>
+</div>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            firstName: 'Bob',
+            lastName: 'Smith'
+        },
+        computed: {
+            fullName: {
+                get () {
+                    return `${this.firstName} ${this.lastName}`;
+                },
+                set (val) {
+                    let names = val.split(' ');
+                    this.firstName = names[0];
+                    this.lastName = names[1] ? names[1] : '';
+                }
+            }
+        },
+        methods: {
+            setName (e) {
+                let val = e.target.value;
+                let names = val.split(' ');
+                this.firstName = names[0];
+                this.lastName = names[1] ? names[1] : '';
+            }
+        }
+    })
+</script>
+</body>
+</html>
