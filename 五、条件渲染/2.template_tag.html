@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>template</title>
+    <script src="https://unpkg.com/vue@2.4.2"></script>
+</head>
+<body>
+<div id="app">
+    <template v-if="isShopping">
+        <ol>
+            <li>土豆</li>
+            <li>花生</li>
+            <li>猪肉</li>
+        </ol>
+    </template>
+    <template v-if="isTodo">
+        <ol>
+            <li>写作业</li>
+            <li>看电视</li>
+            <li>打游戏</li>
+        </ol>
+    </template>
+</div>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            shopping: 'shopping',
+            todo: 'todo',
+            isShopping: true,
+            isTodo: false
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>key</title>
+    <script src="https://unpkg.com/vue@2.4.2"></script>
+</head>
+<body>
+<div id="app">
+    <template v-if="loginType === 'username'">
+        <label for="username">Username:</label>
+        <input id="username" type="text" placeholder="Enter your username">
+    </template>
+    <template v-else>
+        <label for="email">Email:</label>
+        <input id="email" type="text" placeholder="Enter your email">
+    </template>
+    <br>
+    <button @click="change">Change LoginType</button>
+</div>
+</body>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            loginType: 'username'
+        },
+        methods: {
+            change () {
+                this.loginType = this.loginType === 'username' ? 'email' : 'username';
+            }
+        }
+    })
+</script>
+</html>

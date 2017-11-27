@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind:style</title>
+    <script src="https://unpkg.com/vue@2.4.2"></script>
+</head>
+<body>
+<div id="app">
+    <p :style="styleObject">This is a line.</p>
+    <p :style="[styleObject, overridingStyle]">This is a line.</p>
+</div>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            styleObject: {
+                color: 'red',
+                fontSize: '2rem'
+            },
+            overridingStyle: {
+                color: 'skyblue',
+                textDecoration: 'underline'
+            }
+        }
+    });
+</script>
+</body>
+</html>

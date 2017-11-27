@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-show</title>
+    <script src="https://unpkg.com/vue@2.4.2"></script>
+</head>
+<body>
+<div id="app">
+    <p v-show="show">This is the first line.</p>
+    <p v-show="!show">This is the second line.</p>
+</div>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            show: false
+        }
+    })
+</script>
+</body>
+</html>
