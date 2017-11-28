@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的变异方法</title>
+    <script src="https://unpkg.com/vue@2.4.2"></script>
+</head>
+<body>
+<ul id="app">
+    <li v-for="(item, index) in list">{{ item }}</li>
+</ul>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            list: ['potato', 'tomato', 'pear']
+        }
+    });
+
+    app.list.push('apple');
+    app.list.sort();
+    app.list.reverse();
+</script>
+</body>
+</html>

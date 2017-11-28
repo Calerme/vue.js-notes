@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-model</title>
+    <script src="https://unpkg.com/vue@2.4.2"></script>
+</head>
+<body>
+<div id="app">
+    <input v-model="message" type="text" placeholder="edit me">
+    <p>Message is: {{ message }}</p>
+    <textarea v-model="message2" id="" cols="30" rows="10"></textarea>
+    <p>Message2 is: {{ message2 }}</p>
+    <input type="checkbox" v-model="checked" id="checkbox">
+    <label for="checkbox">{{ checkedText }}</label>
+    <fieldset>
+        <legend>classmates</legend>
+        <input v-model="classmates" type="checkbox" value="John" id="John">
+        <label for="John">John</label>
+        <input v-model="classmates" type="checkbox" value="Amy" id="Amy">
+        <label for="Amy">Amy</label>
+        <input v-model="classmates" type="checkbox" value="Peter" id="Peter">
+        <label for="Peter">Peter</label>
+        <p>There are {{ classmates.join(', ') }} in the class.</p>
+    </fieldset>
+    <fieldset>
+        <legend>Radio Button</legend>
+        <input type="radio"  v-model="animals" value="cat" id="cat">
+        <label for="cat">Cat</label>
+        <input type="radio" v-model="animals" value="dog" id="dog">
+        <label for="dog">Dog</label>
+        <p>Your favorite animals is: {{ animals }}</p>
+    </fieldset>
+    <fieldset>
+        <legend>Selecte</legend>
+        <select  v-model="gender">
+            <option value="" disabled>请选择</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <p>Your gender is: {{ gender }}</p>
+    </fieldset>
+    <fieldset>
+        <legend>Select 2</legend>
+        <select v-model="jobs" multiple>
+            <option value="driver">driver</option>
+            <option value="teacher">teacher</option>
+            <option value="whore">whore</option>
+        </select>
+        <p>So you are a(an): {{ jobs }}</p>
+    </fieldset>
+    <fieldset>
+        <legend>Select 3</legend>
+        <select v-model="grade">
+            <option v-for="item in items" :value="item.value">{{ item.text }}</option>
+        </select>
+        <p>Your grade is: {{ grade }}</p>
+    </fieldset>
+</div>
+<script>
+    let app = new Vue({
+       el: '#app',
+       data: {
+           message: '',
+           message2: '',
+           checked: false,
+           classmates: [],
+           animals: '',
+           gender: '',
+           jobs: [],
+           grade: 'C',
+           items: [
+               { value: 'A', text:'one'},
+               { value: 'B', text:'two'},
+               { value: 'C', text:'three'}
+           ]
+       },
+        computed: {
+           checkedText () {
+               return this.checked ? 'true' : 'false';
+           }
+        }
+    });
+</script>
+</body>
+</html>
