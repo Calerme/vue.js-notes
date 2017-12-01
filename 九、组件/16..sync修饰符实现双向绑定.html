@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>.sync</title>
+    <script src="https://unpkg.com/vue@2.4.2"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{ counter }}</p>
+    <!--<button-counter :counter.sync="0"></button-counter>-->
+    <button-counter :counter="counter" @update="newValue => counter = newValue"></button-counter>
+</div>
+<script>
+    Vue.component('button-counter', {
+        template: '<button @click="add">{{counter}}</button>',
+        props:['counter'],
+        methods: {
+            add () {
+                this.counter++;
+                this.$emit('update', this.counter)
+            }
+        }
+    });
+    let app = new Vue({
+        el: '#app',
+        data: {
+            counter: 0
+        }
+    });
+</script>
+</body>
+</html>

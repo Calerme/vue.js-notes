@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prop 验证</title>
+    <script src="https://unpkg.com/vue@2.4.2"></script>
+</head>
+<body>
+<div id="app">
+
+</div>
+<script>
+    Vue.component('example', {
+        template: '',
+        props: {
+            propA: Number,
+            propB: [Number, String],
+            propC: {
+                type: String,
+                required: true
+            },
+            propD: {
+                type: Number,
+                default: 100
+            },
+            propE: {
+                type: Object,
+                default () {
+                    return { message: 'hello' };
+                }
+            },
+            propF: {
+                validator (value) {
+                    return value > 10;
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

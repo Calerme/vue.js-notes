@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>camelCase vs. kebab-case</title>
+    <script src="https://unpkg.com/vue@2.4.2"></script>
+</head>
+<body>
+<div id="app">
+    <child-div my-message="Hello World!"></child-div>
+</div>
+<script>
+    Vue.component('child-div', {
+        template: '<p>{{ myMessage }}</p>',
+        props: ['myMessage']
+    });
+    new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>
